@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Invoer Formulier</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 400px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background-color: #f4f4f4; 
+        }
+        input, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Product Invoer</h2>
+    <form id="productForm">
+        <label for="productInput">Voer een product in:</label>
+        <input type="text" id="productInput" name="product" required>
+        <button type="submit">Product Toevoegen</button>
+    </form>
+
+    <script>
+        // Selecteer het formulier
+        const form = document.getElementById('productForm');
+        
+        // Voeg een event listener toe aan het formulier
+        form.addEventListener('submit', function(event) {
+            // Voorkom dat het formulier standaard wordt verzonden
+            event.preventDefault();
+            
+            // Haal de waarde op uit het invoerveld
+            const productInput = document.getElementById('productInput');
+            const productWaarde = productInput.value;
+            
+            // Toon de ingevoerde waarde in de console
+            console.log('Ingevoerd product:', productWaarde);
+            
+            // Optioneel: leeg het invoerveld na het toevoegen
+            productInput.value = '';
+        });
+    </script>
+</body>
+</html>

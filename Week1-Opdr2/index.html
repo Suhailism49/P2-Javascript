@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Winkelmandje Applicatie</title>
+</head>
+<body>
+    <div id="output"></div>
+    <button onclick="addProduct()">Product toevoegen</button>
+
+    <script>
+        // Opdracht 1: Array aanmaken
+        let winkelmandje = ["Bananen", "Whiskey", "Chips", "Bonen", "Aardappelen"];
+        const outputDiv = document.getElementById('output');
+
+        // Functie om tekst weer te geven
+        function toonTekst(tekst) {
+            outputDiv.innerHTML += `<p>${tekst}</p>`;
+        }
+
+        // Opdracht 1: Aantal producten tonen
+        toonTekst(`Aantal producten in winkelmandje: ${winkelmandje.length}`);
+
+        // Opdracht 2: Alle producten tonen
+        toonTekst(`Uw producten zijn: ${winkelmandje.join(', ')}`);
+
+        // Opdracht 3: 4e product tonen
+        toonTekst(`${winkelmandje[3]} staat op de vierde plek in uw winkelmand`);
+
+        // Opdracht 4: Whiskey vervangen door Bier
+        winkelmandje[1] = "Bier";
+        toonTekst(`Gewijzigde winkelmandje: ${winkelmandje.join(', ')}`);
+
+        // Opdracht 5: Product toevoegen functie
+        function addProduct() {
+            const nieuwProduct = prompt("Voer een nieuw product in:");
+            if (nieuwProduct) {
+                winkelmandje.push(nieuwProduct);
+                toonTekst(`Nieuw winkelmandje: ${winkelmandje.join(', ')}`);
+            }
+        }
+
+        // Opdracht 6: Controleren op aantal producten
+        function controleerAantalProducten() {
+            if (winkelmandje.length > 1) {
+                toonTekst(`Uw producten: ${winkelmandje.join(', ')}`);
+            } else {
+                toonTekst("U heeft niet genoeg producten om te tonen");
+            }
+        }
+        controleerAantalProducten();
+
+        // Opdracht 7: Controleren op Drop
+        function controleerDrop() {
+            if (winkelmandje[4] === "Drop") {
+                toonTekst(`Uw producten: ${winkelmandje.join(', ')}`);
+            } else {
+                toonTekst("U heeft geen drop");
+            }
+        }
+        controleerDrop();
+
+        // Opdracht 8 en 9: Producten met spatie tonen en eerste twee producten verwijderen
+        toonTekst(`Oude winkelmandje: ${winkelmandje.join(' ')}`);
+        const oudWinkelmandje = [...winkelmandje];
+        winkelmandje.splice(0, 2);
+        toonTekst(`Nieuwe winkelmandje na verwijderen: ${winkelmandje.join(' ')}`);
+
+        // Opdracht 10: Sorteren van producten
+        winkelmandje.sort();
+        toonTekst(`Gesorteerde winkelmandje: ${winkelmandje.join(' ')}`);
+    </script>
+</body>
+</html>
